@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h2>첫번째 인스턴스</h2>
+        <my-g-component></my-g-component>
+        <my-l-component></my-l-component>
+    </div>
+    <div id="app2">
+        <h2>두번째 인스턴스</h2>
+        <my-g-component></my-g-component>
+        <my-l-component></my-l-component>
+    </div>
+    <script>
+        Vue.component('my-g-component', {
+            template: '<h2>전역 컴포넌트</h2>',
+        });
+
+        const cmp = {
+            template: '<h2>지역 컴포넌트</h2>'
+        }
+        new Vue({
+            el: '#app',
+            components: {
+                'my-l-component': cmp
+            }
+        });
+        new Vue({
+            el: '#app2',
+        })
+    </script>
+</body>
+</html>
