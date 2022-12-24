@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- <div id="des">
+            <p>네임드 뷰: 특정 페이지로 이동했을 때 여러 개의 컴포넌 트를 동시에 표시하는 라우팅 방식</p>
+            <p>네스티드 라우터(상위 컴포넌트가 하위 컴포넌트를 포함함) vs 네임드 뷰(같은 레벨에서 여러 개의 컴포넌트를 표시)</p>
+        </div> -->
+        <router-view name="header"></router-view>
+        <router-view></router-view>
+        <router-view name="footer"></router-view>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script>
+    <script>
+        const Body = {
+            template: `
+                <div>This is Body</div>
+            `
+        };
+        const Header = {
+            template: `
+                <div>This is Header</div>
+            `
+        };
+        const Footer = {
+            template: `
+                <div>This is Footer</div>
+            `
+        };
+
+        const router = new VueRouter({
+            routes: [
+                {
+                    path: '/',
+                    components: {
+                        default: Body,
+                        header: Header,
+                        footer: Footer,
+                    }
+                }
+            ]
+        });
+
+        const app = new Vue({
+            router
+        }).$mount('#app');
+    </script>
+</body>
+</html>
