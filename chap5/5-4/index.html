@@ -16,6 +16,8 @@
        <p v-show="flag">DoIt Vue.js</p>
        <h5 v-bind:id="uid">뷰 입문서</h5>
        <button v-on:click="popupAlert">경고 창 버튼</button>
+       <button v-on:click="popupAlertParam(100)">경고 창 버튼(인자 넘김)</button>
+       <button v-on:click="eventParam">클릭</button>
     </div>
     <script>
         new Vue({
@@ -28,6 +30,12 @@
             methods: {
                 popupAlert: function(){
                     return alert("경고 창 표시")
+                },
+                popupAlertParam: function(num){
+                    return alert('clicked ' + num + ' times');
+                },
+                eventParam(event){
+                    console.log(event);
                 }
             }
         });
