@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+       <input v-model="message"/>
+       <!-- 데이터 변화를 감지하여 자동적으로 로직 수행(데이터 호출과 같이 상대적으로 더 많이 소모되는 비동기 처리에 적합) -->
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue.js'
+            },
+            watch:{
+                message: function(data){
+                    console.log("message의 값이 바뀝니다.. => "+data)
+                }
+            }
+        });
+    </script>
+</body>
+</html>
