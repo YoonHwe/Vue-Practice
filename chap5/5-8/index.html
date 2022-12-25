@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+       <p>{{message}}</p>
+       <button v-on:click="reverseMsg">문자열 역순</button>
+       <!-- methods 속성은 호출할 때만 해당 로직이 수행됨(수동적 데이터 갱신) -->
+       <!-- computed 속성은 대상 데이터의 값이 변경되면 자동적으로 수행됨(능동적 데이터 갱신) -->
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue.js'
+            },
+            methods: {
+                reverseMsg(){
+                    this.message = this.message.split('').reverse().join('');
+                    return this.message
+                }
+            }
+        });
+    </script>
+</body>
+</html>
